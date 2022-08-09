@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+<style>
+
+    /* Base font from our Ubuntu friends */
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap');
+
+    /* Baseline formatting */
+    body {background-color: #9365f6}
+
+    h1, h2, h3, h4 {
+        font-family: 'Ubuntu', sans-serif;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    p {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 300;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    hr {
+    color: white;
+    }
+
+
+
+
+    /* Content Grid, below the main headline grid */
+    /* font size scaling when we're on a smaller screen*/
+    @media  screen and (min-width: 0) and (max-width: 1943px)  {
+        .content,
+        .content_block1_text,
+        .content_block1_header,
+        .content_block2_text,
+        .content_block2_header{
+            font-size: calc((1.1 - 1) * 1.2vw + 1rem);
+        }
+    }
+
+    .name {
+        font-size: calc((6.5 - 1) * 0.4vw + 1rem);
+        margin-block-end: 0.0em;
+}
+
+
+
+
+        /* for little screens
+
+        /* Little 'headline' grid when we have a little screen*/
+        .name {
+        font-size: calc((6.5 - 1) * 0.4vw + 1rem);
+        margin-block-end: 0.0em;}
+
+        .headlinegrid{
+            --grid-gutter: calc( 6vw - 11.0px);
+            --cell-max-width: calc( (  1500px - (11.0px * (8 - 1)) ) / 8 );
+            display: grid;
+            position: relative;
+            grid-area: 1/1/-1/-1;
+            grid-template-rows: repeat(5,minmax(6vw, auto));
+            grid-template-columns: minmax(var(--grid-gutter), 1fr) repeat(8, minmax(0, var(--cell-max-width))) minmax(var(--grid-gutter), 1fr);
+            row-gap: 11px;
+            column-gap: 11px;
+            --inset-padding: 0vw;
+            --row-height-scaling-factor: 0.0215;
+            --container-width: min( 1500px, calc(100vw -  4vw * 2 - var(--inset-padding) ));
+        }
+
+        .profile-pic-container{
+            grid-area: 2/2/3/7;
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            position: relative;
+            /* Need to specify font size etc as we will use enum as the margin as we want this to align to the text */
+        }
+        .profile-pic{
+            max-width:100%;
+            max-height:100%;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;
+        }
+        .headlinecontainer{
+            grid-area: 3/2/20/10;
+            z-index: 0;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        .bigheadline{
+            margin-block-start: 0em;
+            font-size: calc((6.5 - 1) * 0.9vw + 1rem);
+        }
+
+        .bigsubheadline{
+
+            font-size: calc((6.5 - 1) * 0.4vw + 1rem);
+        }
+
+        .after-block {
+            grid-area: 21/2/22/10;
+        }
+
+
+
+        /* Little 'about' information grid when we have a little screen*/
+        .contentgrid{
+            --grid-gutter: calc( 6vw - 11.0px);
+            --cell-max-width: calc( (  1500px - (11.0px * (8 - 1)) ) / 8 );
+            display: grid;
+            position: relative;
+            grid-area: 1/1/-1/-1;
+            grid-template-rows: repeat(24,minmax(6vw, auto));
+            grid-template-columns: minmax(var(--grid-gutter), 1fr) repeat(8, minmax(0, var(--cell-max-width))) minmax(var(--grid-gutter), 1fr);
+            row-gap: 11px;
+            column-gap: 11px;
+            --inset-padding: 0vw;
+            --row-height-scaling-factor: 0.0215;
+            --container-width: min( 1500px, calc(100vw -  4vw * 2 - var(--inset-padding) ));
+        }
+
+        .content_block1_header{
+            grid-area: 1/2/2/10;
+            z-index: 1;
+        }
+        .content_block1_text{
+            grid-area: 2/2/4/10;
+            z-index: 2;
+        }
+        .content_block2_header{
+            grid-area: 4/2/5/10;
+            z-index: 1;
+        }
+        .content_block2_text{
+            grid-area: 5/2/8/10;
+            z-index: 2;
+        }
+
+
+
+
+    @media  (min-width: 750px){
+        /* for big screens */
+        .headlinegrid{
+            --grid-gutter: calc( 4vw - 11px);
+            --cell-max-width: calc( (  1500px - (11px * (24 - 1)) ) / 24 );
+            --inset-padding: 0vw;
+            --row-height-scaling-factor: 0.0215;
+            --container-width: min( 1500px, calc(100vw -  4vw * 2 - var(--inset-padding) ));
+            grid-template-rows: repeat(22,minmax(calc(var(--container-width) * var(--row-height-scaling-factor)), auto));
+            grid-template-columns: minmax(var(--grid-gutter), 1fr) repeat(24, minmax(0, var(--cell-max-width))) minmax(var(--grid-gutter), 1fr);
+            line-height: 1.8;
+        }
+
+        .profile-pic-container{
+            grid-area: 3/1/21/7;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            position: relative;
+            /* Need to specify font size etc as we will use enum as the margin as we want this to align to the text */
+        }
+        .profile-pic{
+                    line-height: calc(1.4 * (1 + (1 - 6.5)/25));
+            font-size: calc((6.5 - 1) * 0.9vw + 1rem);
+            margin-block-start: 0em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+             max-width:90%;
+            max-height:90%;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;
+        }
+
+        /* Specifies the big bold headline - Set to scale with the screen size. */
+        .headlinecontainer{
+            grid-area: 3/7/21/25;
+            z-index: 0;
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        .bigheadline{
+            line-height: calc(1.4 * (1 + (1 - 6.5)/25));
+            font-size: calc((6.5 - 1) * 0.9vw + 1rem);
+        }
+
+        .bigsubheadline{
+            line-height: calc(1.4 * (1 + (1 - 6.5)/25));
+            font-size: calc((6.5 - 1) * 0.4vw + 1rem);
+        }
+
+        .after-block {
+            grid-area: 21/7/22/25;
+        }
+
+        .contentgrid {
+        --grid-gutter: calc( 4vw - 11px);
+        --cell-max-width: calc( (  1500px - (11px * (24 - 1)) ) / 24 );
+        --inset-padding: 0vw;
+        --row-height-scaling-factor: 0.0215;
+        --container-width: min( 1500px, calc(100vw -  4vw * 2 - var(--inset-padding) ));
+        grid-template-rows: repeat(19,minmax(calc(var(--container-width) * var(--row-height-scaling-factor)), auto));
+        grid-template-columns: minmax(var(--grid-gutter), 1fr) repeat(24, minmax(0, var(--cell-max-width))) minmax(var(--grid-gutter), 1fr);
+        }
+
+        .content_block1_header {
+        grid-area: 1/7/2/10;
+        z-index: 6;
+        }
+        .content_block1_text {
+            grid-area: 1/12/4/25;
+        }
+
+        .content_block2_header {
+            grid-area: 5/7/6/10;
+            z-index: 6;
+        }
+        .content_block2_text {
+            grid-area: 5/12/7/25;
+        }
+
+    }
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<header></header>
+<h1 class = "name">Daniel.</h1>
+
+<div class = headline>
+<div class = headlinegrid>
+    <div class = profile-pic-container>
+        {% load static %}
+        <img class="profile-pic" src="{% static 'img_daniel.jpg' %}" alt="Image of Daniel">
+    </div>
+
+    <div class = headlinecontainer>
+        <p class = "bigheadline">Data scientist and software engineer based in London.</p>
+        <p class = "bigsubheadline"> Currently a senior data scientist at Meta (Facebook) by day and a software tinkerer by night.</p>
+    </div>
+  <div class = "after-block" ><hr></div>
+</div>
+</div>
+
+
+<div class = "content">
+<div class = "contentgrid">
+  <h2 class="content_block1_header">About my work:</h2>
+    <div class = "content_block1_text">
+        <p> I'm originally an economist / econometrician from Canberra, Australia. But I have since retrained and now work as a data scientist.
+      I work mostly on competition and anti-trust issues at Meta, teaming up with lawyers to build data-driven legal arguments in competition proceedings.
+      I'm an expert communicator, having honed this through many years of talking about technical concepts with non-technical people.</p>
+    </div>
+
+    <h2 class= "content_block2_header">About me:</h2>
+    <div class = "content_block2_text">
+        <p>I've described my self as a tech, dog and brunch enthusiast. But, gardening and baking also feature regularly.
+Overall, I'm a tinkerer.</p>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
