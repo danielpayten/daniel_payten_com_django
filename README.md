@@ -1,4 +1,4 @@
-# daniel_payten_com_django
+# danielpayten.com Django
 Basic Personal Website
 
 Run using Kubernetes on Google Cloud
