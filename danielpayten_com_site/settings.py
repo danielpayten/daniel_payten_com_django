@@ -132,7 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 # [START gke_django_static_config]
-STATIC_URL = 'http://storage.googleapis.com/danielpayten-com-website_django-static/'
+STATIC_URL = 'https://storage.googleapis.com/danielpayten-com-website_django-static/'
 # STATIC_URL = 'https://storage.googleapis.com/[YOUR_GCS_BUCKET]/static/'
 # [END gke_django_static_config]
 
