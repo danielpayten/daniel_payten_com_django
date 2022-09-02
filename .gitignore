@@ -1,0 +1,6 @@
+/venv/*
+/blog/migrations/*
+.DS_Store
+/__pycache__/
+
+
