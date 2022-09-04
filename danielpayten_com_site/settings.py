@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'landing'
+    'landing',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -53,10 +54,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'danielpayten_com_site.urls'
 
+TEMPLATES_DIRS = os.path.join(BASE_DIR, './templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIRS],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="blog-container">
+
+        <!-- Blog Entries -->
+        <div class="blog-entry-all">
+            {% for post in post_list %}
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text-author">{{ post.author }} | {{ post.created_on}} </p>
+                    <p class="card-text-content">{{post.content|slice:":200" }}</p>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+{%endblock%}

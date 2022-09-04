@@ -22,6 +22,7 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls')),
+    path('blog/', include('blog.urls')),
 ]
 
 # Only serve static files from Django during development
