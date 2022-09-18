@@ -40,6 +40,11 @@ spec:
                 secretKeyRef:
                   name: cloudsql
                   key: password
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: django-config
+                  key: secret_key
             # [END cloudsql_secrets]
         ports:
         - containerPort: 8080

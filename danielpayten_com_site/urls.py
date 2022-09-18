@@ -17,12 +17,16 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
-
+from django.conf.urls import url, include
+from markdownx import urls as markdownx
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls')),
     path('blog/', include('blog.urls')),
+]
+urlpatterns += [
+    path('markdownx/', include(markdownx)),
 ]
 
 # Only serve static files from Django during development
